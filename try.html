@@ -3,66 +3,69 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="waves.css" />
+		<style>
+			.typing-container {
+				font-family: monospace;
+				font-size: 2rem;
+				display: inline-block;
+				white-space: nowrap;
+			}
+
+			.cursor {
+				display: inline-block;
+				animation: blink 0.7s steps(1) infinite;
+			}
+
+			@keyframes blink {
+				50% {
+					opacity: 0;
+				}
+			}
+		</style>
 		<title>Document</title>
 	</head>
 	<body>
-		<div class="header">
-			<div class="inner-header flex">
-                
-			</div>
-			<!--Waves Container-->
-			<div>
-				<svg
-					class="waves"
-					xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					viewBox="0 24 150 28"
-					preserveAspectRatio="none"
-					shape-rendering="auto"
-				>
-					<defs>
-						<path
-							id="gentle-wave"
-							d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-						/>
-					</defs>
-					<g class="parallax">
-						<use
-							xlink:href="#gentle-wave"
-							x="48"
-							y="0"
-							fill="rgba(255,255,255,0.7"
-						/>
-						<use
-							xlink:href="#gentle-wave"
-							x="48"
-							y="3"
-							fill="rgba(255,255,255,0.5)"
-						/>
-						<use
-							xlink:href="#gentle-wave"
-							x="48"
-							y="5"
-							fill="rgba(255,255,255,0.3)"
-						/>
-						<use
-							xlink:href="#gentle-wave"
-							x="48"
-							y="7"
-							fill="#fff"
-						/>
-					</g>
-				</svg>
-			</div>
-			<!--Waves end-->
+		<div class="typing-container">
+			<span id="typing-text"></span><span class="cursor">|</span>
 		</div>
-		<!--Header ends-->
+		
+		
+		<button onclick="enableTyping()">Start</button>
+		<button onclick="disableTyping()">Stop</button>
 
-		<!--Content starts-->
-		<div class="content flex">
-			<p>By.Goodkatz | Free to use</p>
-		</div>
-		<!--Content ends-->
+		<script>
+			const word = "Developer";
+			let speed = 150; // typing speed in ms
+			let isTyping = false;
+			let typingInterval;
+			let currentIndex = 0;
+			const textElement = document.getElementById("typing-text");
+
+			function typeLetterByLetter() {
+				if (currentIndex < word.length) {
+					textElement.textContent += word[currentIndex];
+					currentIndex++;
+				} else {
+					clearInterval(typingInterval);
+					isTyping = false;
+				}
+			}
+
+			function enableTyping(customSpeed = 150) {
+				if (isTyping) return;
+				speed = customSpeed;
+				textElement.textContent = "";
+				currentIndex = 0;
+				isTyping = true;
+				typingInterval = setInterval(typeLetterByLetter, speed);
+			}
+
+			function disableTyping() {
+				clearInterval(typingInterval);
+				isTyping = false;
+				textElement.textContent = ""; // Optional: remove text when stopped
+				currentIndex = 0;
+			}
+		</script>
 	</body>
 </html>

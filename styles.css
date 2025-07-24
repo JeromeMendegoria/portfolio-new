@@ -3,20 +3,27 @@
 	margin: 0;
 	box-sizing: 0;
 	font-family: monospace, sans-serif;
-	/* border: 1px solid black; */
 }
 section {
 	width: 80%;
 	margin: auto;
 }
 .hero-section {
+	width: 100%;
 	height: 90vh;
+	overflow: visible;
+	background: linear-gradient(
+		60deg,
+		rgba(84, 58, 183, 1) 0%,
+		rgba(0, 172, 193, 1) 100%
+	);
+	color: white;
 }
 header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem 0;
+	padding: 1rem 10%;
 }
 header ul {
 	display: flex;
@@ -27,11 +34,8 @@ header ul {
 .hero-wrapper {
 	display: flex;
 	align-items: center;
-	height: 100%;
-}
-.left-side,
-.right-side {
-	margin-bottom: 15%;
+	padding: 0 10%;
+	height: 79%;
 }
 .left-side,
 .right-side {
@@ -41,6 +45,11 @@ header ul {
 	font-weight: 400;
 }
 .left-side h1 {
+	font-size: 2.6rem;
+	margin-bottom: 5px;
+}
+.typing-container span{
+	display: inline;
 	font-size: 2.6rem;
 	margin-bottom: 5px;
 }
@@ -168,6 +177,8 @@ header ul {
     filter: blur(2px);
     opacity: .6;
 }
+
+/* --------------- effects ---------------- */
 .project-wrapper .project-cards:hover {
     filter: none;
     opacity: 1;
@@ -184,4 +195,22 @@ header ul {
 }
 .project-cards:hover .project-cards .image-wrapper span{
     border: 3px solid black;
+}
+
+.typing-container {
+	font-family: monospace;
+	font-size: 2rem;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.cursor {
+	display: inline-block;
+	animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
 }

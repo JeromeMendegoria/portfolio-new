@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="./styles/waves.css" />
+		<script src="./script.js" defer type="module"></script>
 		<title>Jerome Mendegoria</title>
 	</head>
 	<body>
@@ -21,7 +23,13 @@
 				<div class="hero-wrapper">
 					<div class="left-side">
 						<h2>Hi, I'm Jerome Mendegoria</h2>
-						<h1>Frontend Web Developer</h1>
+						<h1>
+							Frontend Web
+							<div class="typing-container">
+								<span id="typing-text"></span
+								><span class="cursor">|</span>
+							</div>
+						</h1>
 						<p>
 							Motivated Frontend Developer skilled in HTML, CSS,
 							JavaScript, and React. Eager to apply my knowledge
@@ -34,6 +42,49 @@
 							<img src="./assets/design port.png" alt="" />
 						</div>
 					</div>
+				</div>
+				<div>
+					<svg
+						class="waves"
+						xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink"
+						viewBox="0 24 150 28"
+						preserveAspectRatio="none"
+						shape-rendering="auto"
+					>
+						<defs>
+							<path
+								id="gentle-wave"
+								d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+							/>
+						</defs>
+						<g class="parallax">
+							<use
+								xlink:href="#gentle-wave"
+								x="48"
+								y="0"
+								fill="rgba(255,255,255,0.7"
+							/>
+							<use
+								xlink:href="#gentle-wave"
+								x="48"
+								y="3"
+								fill="rgba(255,255,255,0.5)"
+							/>
+							<use
+								xlink:href="#gentle-wave"
+								x="48"
+								y="5"
+								fill="rgba(255,255,255,0.3)"
+							/>
+							<use
+								xlink:href="#gentle-wave"
+								x="48"
+								y="7"
+								fill="#fff"
+							/>
+						</g>
+					</svg>
 				</div>
 			</section>
 			<section class="project-section" aria-label="Project section">
