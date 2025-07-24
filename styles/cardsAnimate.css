@@ -1,0 +1,16 @@
+.project-wrapper .project-cards.moved:nth-child(1){
+    transform: translateX(-250%);
+    opacity: 0;
+}
+.project-wrapper .project-cards.moved:nth-child(2){
+    transform: translateX(-350%);
+    opacity: 0;
+}
+.project-wrapper .project-cards.moved:nth-child(3){
+    transform: translateX(-450%);
+    opacity: 0;
+}
+.project-wrapper .project-cards.moved:nth-child(4){
+    transform: translateX(-550%);
+    opacity: 0;
+}

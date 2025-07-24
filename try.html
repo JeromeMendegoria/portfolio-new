@@ -4,68 +4,40 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<style>
-			.typing-container {
-				font-family: monospace;
-				font-size: 2rem;
+			.bounce-pop {
 				display: inline-block;
-				white-space: nowrap;
+				animation: popBounce 0.8s ease-out;
+				font-size: 2.5rem;
+				color: #333;
 			}
 
-			.cursor {
-				display: inline-block;
-				animation: blink 0.7s steps(1) infinite;
-			}
-
-			@keyframes blink {
-				50% {
+			@keyframes popBounce {
+				0% {
 					opacity: 0;
+					transform: scale(0.3) translateY(100%);
+				}
+				60% {
+					opacity: 1;
+					transform: scale(1.05) translateY(-10px);
+				}
+				80% {
+					transform: scale(0.95) translateY(5px);
+				}
+				100% {
+					transform: scale(1) translateY(0);
 				}
 			}
 		</style>
 		<title>Document</title>
 	</head>
 	<body>
-		<div class="typing-container">
-			<span id="typing-text"></span><span class="cursor">|</span>
-		</div>
-		
-		
-		<button onclick="enableTyping()">Start</button>
-		<button onclick="disableTyping()">Stop</button>
+		<h2 class="bounce-pop">Welcome!</h2>
 
 		<script>
-			const word = "Developer";
-			let speed = 150; // typing speed in ms
-			let isTyping = false;
-			let typingInterval;
-			let currentIndex = 0;
-			const textElement = document.getElementById("typing-text");
-
-			function typeLetterByLetter() {
-				if (currentIndex < word.length) {
-					textElement.textContent += word[currentIndex];
-					currentIndex++;
-				} else {
-					clearInterval(typingInterval);
-					isTyping = false;
-				}
-			}
-
-			function enableTyping(customSpeed = 150) {
-				if (isTyping) return;
-				speed = customSpeed;
-				textElement.textContent = "";
-				currentIndex = 0;
-				isTyping = true;
-				typingInterval = setInterval(typeLetterByLetter, speed);
-			}
-
-			function disableTyping() {
-				clearInterval(typingInterval);
-				isTyping = false;
-				textElement.textContent = ""; // Optional: remove text when stopped
-				currentIndex = 0;
-			}
+			const heading = document.querySelector(".bounce-pop");
+			heading.classList.remove("bounce-pop"); // reset
+			void heading.offsetWidth; // force reflow
+			heading.classList.add("bounce-pop"); // re-add
 		</script>
 	</body>
 </html>
