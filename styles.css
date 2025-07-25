@@ -76,11 +76,13 @@ header ul {
 .project-section h3 {
 	text-align: center;
 }
-.project-section h2 {
+.project-section h2,
+.about-section h2 {
 	font-size: 2rem;
 	margin-bottom: 7px;
 }
-.project-section h3 {
+.project-section h3,
+.about-section h3 {
 	font-weight: 200;
 	font-size: 0.8rem;
 	margin-bottom: 10%;
@@ -91,7 +93,7 @@ header ul {
 	justify-content: center;
 	grid-gap: 1rem;
 	width: max-content;
-	margin: auto;
+	margin: 0 auto 100px;
 }
 .project-cards {
 	display: flex;
@@ -189,7 +191,12 @@ header ul {
 	width: 100%;
 	height: 30px;
 	pointer-events: none;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), transparent);
+	background: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.7),
+		rgba(0, 0, 0, 0.5),
+		transparent
+	);
 	transition: opacity 0.3s ease;
 	/* border-top-left-radius: 50%; */
 	z-index: 999;
@@ -200,7 +207,80 @@ header ul {
 	visibility: hidden;
 }
 
+/* ------------------ About me secton ----------------- */
+
+.about-section h2,
+.about-section h3 {
+	text-align: center;
+}
+.about-section h3 {
+	margin-bottom: 4%;
+}
+.about-wrapper {
+	display: flex;
+	gap: 3rem;
+}
+.left-side h3 {
+	text-align: left;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+.left-side ul {
+	padding-left: 30px;
+	font-size: .8rem;
+}
+.left-side > div {
+	border-radius: 20px;
+	padding: 1rem .5rem;
+	margin-bottom: 10px;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.about-header h4{
+	font-size: 1.3rem;
+}
+.about-section h5 {
+	font-weight: 100;
+}
+.left-side ul {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	margin: 1rem 0;
+	list-style: none;
+}
+.left-side ul li {
+	display: flex;
+	gap: .5rem;
+}
+.left-side .about-list-numbering {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 31px;
+	border-radius: 50%;
+	border: 1px solid green;
+	background: linear-gradient(
+		60deg,
+		rgba(84, 58, 183, 1) 0%,
+		rgba(0, 172, 193, 1) 100%
+	);
+	color: white;
+}
+.left-side ul li span:nth-child(2) {
+	width: max-content;
+	padding: .5rem 1rem;
+	border-radius: 20px;
+	background: linear-gradient(
+		60deg,
+		rgba(84, 58, 183, 1) 0%,
+		rgba(0, 172, 193, 1) 100%
+	);
+	color: white;
+}
+
+
 /* --------------- effects ---------------- */
+
 .project-wrapper .project-cards:hover {
 	filter: none;
 	opacity: 1;

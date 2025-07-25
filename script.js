@@ -2,6 +2,7 @@ import { enableTyping, disableTyping } from "./scripts/typingAnimation.js";
 import { cardAnimateOnScroll } from "./scripts/cardsAnimation.js";
 
 const hero = document.querySelector(".hero-section");
+const projSectHead = document.querySelector(".wave-text")
 const projectSection = document.querySelector(".project-section")
 
 const heroObserver = new IntersectionObserver(
@@ -27,8 +28,10 @@ const scrollHint = document.getElementById('scrollHint');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
     scrollHint.classList.add('hidden');
-  } else {
-    scrollHint.classList.remove('hidden');
+	projSectHead.classList.remove("wave")
+} else {
+	scrollHint.classList.remove('hidden');
+	projSectHead.classList.add("wave")
   }
 });
 heroObserver.observe(hero);
