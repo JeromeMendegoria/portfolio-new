@@ -5,9 +5,7 @@ export const cardAnimateOnScroll = new IntersectionObserver(
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {				
                 showCards()
-			} else {
-				hideCards()
-			}
+			} 
 		});
 	},
 	{
@@ -23,7 +21,7 @@ function showCards() {
     });
 }
 
-function hideCards() {
+export function hideCards() {
     projectCards.forEach((card) => {
         setTimeout(() => {
           card.classList.add("moved");

@@ -1,0 +1,216 @@
+:root {
+	--toggle-width: 40px;
+	--toggle-height: 20px;
+	--thumb-offset: 5px;
+	--thumb-size: calc(var(--toggle-height) - var(--thumb-offset) * 2);
+}
+
+.pop-up-ui {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+.pop-up-ui.active {
+	display: flex;
+}
+
+.blur-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(3px); /* Only blur what is *behind* this layer */
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 1;
+}
+
+.mid {
+	position: relative;
+	z-index: 2;
+	pointer-events: auto;
+	background: white;
+	padding: 1.3rem 1rem;
+	border-radius: 8px;
+	width: 450px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.agree-wrapper input[type="checkbox"] {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+.agree-wrapper label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: var(--toggle-width);
+	height: var(--toggle-height);
+	background: grey;
+	display: block;
+	border-radius: var(--toggle-height);
+	position: relative;
+}
+
+.agree-wrapper label::after {
+	content: "";
+	position: absolute;
+	top: var(--thumb-offset);
+	left: var(--thumb-offset);
+	width: var(--thumb-size);
+	height: var(--thumb-size);
+	background: #fff;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+
+.agree-wrapper input:checked + label {
+	background: #bada55;
+}
+
+.agree-wrapper input:checked + label::after {
+	left: calc(100% - var(--thumb-offset));
+	transform: translateX(-100%);
+}
+
+.agree-wrapper label:active::after {
+	width: calc(var(--thumb-size) + 20px); /* Optional active expansion */
+}
+
+.dropdown-wrapper {
+	position: relative;
+	width: 100%x;
+	font-family: sans-serif;
+}
+
+#selectedInput {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: 1px solid gray;
+	outline: none;
+}
+
+#toggleBtn {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.dropdown-list {
+	list-style: none;
+	margin-top: 10px;
+	padding: 0;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background: white;
+	display: none;
+	z-index: 10;
+}
+
+.dropdown-list li {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.dropdown-list li:hover {
+	background-color: #f0f0f0;
+}
+
+.pop-up-ui .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.con-left-side {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	font-size: 1.1rem;
+	font-weight: 800;
+
+}
+.con-left-side .image-wrapper {
+	border: 1px solid rgb(59, 222, 48);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+.agree-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: start;
+}
+.pop-up-ui .mid h3 {
+	margin-bottom: unset;
+	text-align: left;
+	font-size: 1.2rem;
+	font-weight: 700;
+	/* margin-bottom: 20px; */
+}
+.pop-up-ui .proj-header {
+	margin: 10px 0;
+}
+.pop-up-ui .desc-header {
+	margin: 10px 0;
+	color: gray;
+	font-weight: 200;
+	font-size: 1.025rem;
+}
+.proj-details-input {
+	resize: none;
+	height: 190px;
+	/* margin-bottom: 10px; */
+	border: 2px solid gray;
+	border-radius: 10px;
+	padding: .5rem .2rem;
+	outline: none;
+	font-weight: 100;
+	font-size: .9rem;
+	color: gray;
+}
+.pop-up-ui .mid .inp-header {
+	margin: 10px 0;
+}
+
+.input-budget, .submit-project-details {
+	height: 37px;
+	border-radius: 10px;
+	border: none;
+}
+.input-budget {
+	border: 1px solid gray;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+.submit-project-details {
+	background-color: #333333;
+	color: white;
+	height: 50px;
+}
+.pop-up-footer {
+	font-size: .8rem;
+	text-align: center;
+	color: gray;
+	margin-top: 10px;
+}
